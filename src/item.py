@@ -13,6 +13,7 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
+        self.all.append(self)
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -29,4 +30,4 @@ class Item:
         """
         Применяет установленную скидку для конкретного товара.
         """
-        self.price = self.price * self.pay_rate
+        self.price *= self.pay_rate
