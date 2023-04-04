@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+import os.path
 import csv
 
 
@@ -43,7 +43,7 @@ class Item:
         Инициализирует экземпляры класса Item данными из файла src/items.csv
         """
         cls.all = []  # Что бы пройти проверку assert len(Item.all) == 5 приходится обнулять список!
-        with open('../src/items.csv', 'r') as file:
+        with open('items.csv', 'r') as file:
             data = csv.DictReader(file)
             for i in data:
                 cls(i['name'], cls.string_to_number(i['price']), cls.string_to_number(i['quantity']))
@@ -59,7 +59,7 @@ class Item:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
         """
-        return self.price * self.quantity
+        return self.price
 
     def apply_discount(self) -> None:
         """
