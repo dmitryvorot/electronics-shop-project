@@ -26,8 +26,9 @@ def test_apply_discount(item1):
 
 
 def test_item_name(item1):
-    item1.name = 'test_very_long_text'
-    assert item1.name != 'test_very_long_text'
+    with pytest.raises(Exception):
+        item1.name = 'test_very_long_text'
+
     item1.name = 'test_text'
     assert item1.name == 'test_text'
 
