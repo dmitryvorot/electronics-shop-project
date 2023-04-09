@@ -42,4 +42,12 @@ def test_string_to_number():
     assert Item.string_to_number('123') == 123
     assert Item.string_to_number('12.3') == 12
 
+
+def test_repr(item1):
+    assert item1.__repr__() == "Item('phone_test', 10000, 3)"
+
+
+def test_str(item1):
+    assert item1.__str__() == "phone_test"
+
 # pytest --cov --cov-report=html
