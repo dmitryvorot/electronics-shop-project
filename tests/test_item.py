@@ -5,11 +5,11 @@ from src.item import Item
 
 @pytest.fixture
 def item1():
-    return Item('phone_test', 10000, 3)
+    return Item('fixture_test', 10000, 3)
 
 
 def test_init(item1):
-    assert item1.name == 'phone_test'
+    assert item1.name == 'fixture_test'
     assert item1.price == 10000
     assert item1.quantity == 3
 
@@ -44,10 +44,16 @@ def test_string_to_number():
 
 
 def test_repr(item1):
-    assert item1.__repr__() == "Item('phone_test', 10000, 3)"
+    assert item1.__repr__() == "Item('fixture_test', 10000, 3)"
 
 
 def test_str(item1):
-    assert item1.__str__() == "phone_test"
+    assert item1.__str__() == "fixture_test"
+
+
+def test_add(item1):
+    data_int = 1000
+    assert item1 + data_int == ValueError
+    assert item1 + item1 == 6
 
 # pytest --cov --cov-report=html

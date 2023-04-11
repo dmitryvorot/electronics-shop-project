@@ -1,5 +1,5 @@
 from __future__ import annotations
-import os.path
+
 import csv
 
 
@@ -72,3 +72,11 @@ class Item:
         Применяет установленную скидку для конкретного товара.
         """
         self.price *= self.pay_rate
+
+    def __add__(self, other):
+        """
+        Складывает классы Item друг с другом или дочерними.
+        """
+        if not isinstance(other, Item):
+            return ValueError
+        return self.quantity + other.quantity
